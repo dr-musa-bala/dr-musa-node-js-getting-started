@@ -64,3 +64,11 @@ For more information about using Node.js on Heroku, see these Dev Center article
 
 [cedar]: https://devcenter.heroku.com/articles/generations#cedar
 [fir]: https://devcenter.heroku.com/articles/generations#fir
+
+## CI/CD Pipeline
+
+This project uses GitHub Actions to implement a full CI/CD pipeline:
+- Installs dependencies
+- Runs automated tests
+- Builds a Docker image
+- Pushes the image to Docker Hub securely using GitHub Secrets
