@@ -55,7 +55,4 @@ jobs:
             docker rm -f nodeapp || true
             docker run -d --restart unless-stopped --name nodeapp -p 80:5000 ${{ secrets.DOCKERHUB_USERNAME }}/node-js-getting-started:latest
             docker ps | head
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/node-js-getting-started:latest
+          
