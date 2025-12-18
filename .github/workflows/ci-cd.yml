@@ -12,13 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug - show files
-        run: |
-          pwd
-          ls -la
-          echo "---- find Dockerfile ----"
-          find . -maxdepth 3 -name Dockerfile -print
-
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -55,5 +48,3 @@ jobs:
             docker rm -f nodeapp || true
             docker run -d --restart unless-stopped --name nodeapp -p 80:5000 ${{ secrets.DOCKERHUB_USERNAME }}/node-js-getting-started:latest
             docker ps | head
-
-          
