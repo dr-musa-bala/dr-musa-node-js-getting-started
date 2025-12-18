@@ -72,3 +72,34 @@ This project uses GitHub Actions to implement a full CI/CD pipeline:
 - Runs automated tests
 - Builds a Docker image
 - Pushes the image to Docker Hub securely using GitHub Secrets
+
+# Node.js CI/CD Pipeline with Docker & AWS EC2
+
+## 📌 Overview
+This project demonstrates a complete CI/CD pipeline using GitHub Actions.
+
+Every push to the `main` branch automatically:
+- Runs tests
+- Builds a Docker image
+- Pushes the image to Docker Hub
+- Deploys the application to an AWS EC2 instance
+
+## 🛠 Tech Stack
+- Node.js (Express)
+- Docker
+- GitHub Actions
+- Docker Hub
+- AWS EC2 (Ubuntu)
+
+## 🚀 Deployment Flow
+1. Code pushed to GitHub
+2. GitHub Actions runs CI/CD pipeline
+3. Docker image is built and pushed to Docker Hub
+4. EC2 pulls the latest image
+5. Container is restarted automatically
+
+## 🌍 Live Application
+http://http://184.73.71.90/
+
+## 👨‍💻 Author
+**Dr. Musa Bala**
