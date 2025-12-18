@@ -103,3 +103,10 @@ http://http://184.73.71.90/
 
 ## 👨‍💻 Author
 **Dr. Musa Bala**
+## ✅ Status
+✔ CI/CD pipeline implemented  
+✔ Docker image versioned (v1.0.0)  
+✔ Automatically deployed to AWS EC2  
+✔ Live production container running  
+
+Latest stable version: **v1.0.0**
