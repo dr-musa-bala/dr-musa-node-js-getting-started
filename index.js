@@ -11,8 +11,11 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
   console.log(`Rendering 'pages/index' for route '/'`)
-  res.render('pages/index')
+  res.render('pages/index', {
+    version: 'Deployed via GitHub Actions 🚀 v1'
+  })
 })
+
 
 const server = app.listen(port, () => {
   console.log(`Listening on ${port}`)
