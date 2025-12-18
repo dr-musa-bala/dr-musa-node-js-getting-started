@@ -3,7 +3,8 @@ name: CI/CD Pipeline
 on:
   push:
     branches: ["main"]
-
+    tags:
+      - "v*.*.*"
 jobs:
   build-test-push:
     runs-on: ubuntu-latest
@@ -29,13 +30,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/node-js-getting-started
+          tags: |
+            type=semver,pattern={{version}}
+            type=ref,event=tag
+            type=raw,value=latest,enable={{is_default_branch}}
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/node-js-getting-started:latest
+          tags: ${{ steps.meta.outputs.tags }}
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.3
